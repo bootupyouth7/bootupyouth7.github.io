@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Coming soon</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Bricolage+Grotesque:wght@500;700&display=swap">
+<style>
+:root {
+  --bg: #F2E8FF;
+  --ink: #1B1033;
+  --tomato: #FF5A36;
+  --sun: #FFD23F;
+  --gum: #FF8FD0;
+  --mint: #3DDC97;
+  --blue: #2F5BFF;
+  --grape: #6B2FD6;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #1E0F3D; --ink: #FFF6E5; }
+}
+:root[data-theme="dark"] { --bg: #1E0F3D; --ink: #FFF6E5; }
+html { background: var(--bg); }
+*, *::before, *::after { box-sizing: inherit; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+}
+main {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.25rem;
+  text-align: center;
+}
+.shape { position: absolute; }
+.circle { width: 22vmin; height: 22vmin; border-radius: 50%; background: var(--tomato); top: 6%; left: 5%; }
+.star { width: 20vmin; height: 20vmin; background: var(--sun); top: 8%; right: 7%; transform: rotate(14deg);
+  clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+.tri { width: 24vmin; height: 21vmin; background: var(--mint); bottom: 7%; left: 8%; transform: rotate(-10deg);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.half { width: 26vmin; height: 13vmin; background: var(--blue); bottom: 5%; right: 6%; border-radius: 26vmin 26vmin 0 0; transform: rotate(8deg); }
+.dots { width: 22vmin; height: 22vmin; top: 44%; left: 2%; transform: rotate(-6deg);
+  background: radial-gradient(circle, var(--gum) 38%, transparent 40%) 0 0 / 3.2vmin 3.2vmin; }
+.stripes { width: 24vmin; height: 12vmin; top: 36%; right: 3%; transform: rotate(-12deg); border-radius: 1.5vmin;
+  background: repeating-linear-gradient(90deg, var(--grape) 0 2vmin, transparent 2vmin 4vmin); }
+.ring { width: 12vmin; height: 12vmin; border-radius: 50%; border: 2.4vmin solid var(--gum); bottom: 30%; right: 22%; }
+.plus { width: 10vmin; height: 10vmin; top: 22%; left: 24%; transform: rotate(12deg);
+  background: linear-gradient(var(--blue), var(--blue)) center / 100% 28% no-repeat,
+              linear-gradient(var(--blue), var(--blue)) center / 28% 100% no-repeat; }
+.squig { width: 26vmin; bottom: 22%; left: 30%; transform: rotate(-8deg); }
+.squig path { stroke: var(--sun); }
+.content { position: relative; z-index: 1; max-width: 46rem; }
+h1 {
+  margin: 0;
+  font-family: "Bagel Fat One", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.6rem, 11vw, 6.5rem);
+  line-height: 1.15;
+}
+.w { display: block; }
+.w span {
+  display: inline-block;
+  min-width: 0.7em;
+  padding: 0.04em 0.14em 0.1em;
+  margin: 0.05em 0.03em;
+  border-radius: 0.22em;
+  background: var(--c);
+  color: var(--t, var(--ink));
+  transform: rotate(var(--r));
+}
+p {
+  margin: 2rem auto 0;
+  max-width: 28rem;
+  font-size: clamp(1.05rem, 3.4vw, 1.4rem);
+  font-weight: 500;
+  line-height: 1.45;
+}
+.tag {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: var(--sun);
+  color: #1B1033;
+  font-weight: 700;
+  transform: rotate(-2deg);
+}
+</style>
+</head>
+<body>
+<main>
+  <div class="shape circle"></div>
+  <div class="shape star"></div>
+  <div class="shape tri"></div>
+  <div class="shape half"></div>
+  <div class="shape dots"></div>
+  <div class="shape stripes"></div>
+  <div class="shape ring"></div>
+  <div class="shape plus"></div>
+  <svg class="shape squig" viewBox="0 0 120 40" fill="none" aria-hidden="true">
+    <path d="M4 20 Q 19 0 34 20 T 64 20 T 94 20 T 116 20" stroke-width="7" stroke-linecap="round"/>
+  </svg>
+
+  <div class="content">
+    <h1 aria-label="Coming soon">
+      <span class="w" aria-hidden="true">
+        <span style="--c:var(--tomato);--r:-5deg">c</span><span style="--c:var(--sun);--r:4deg">o</span><span style="--c:var(--blue);--t:#fff;--r:-3deg">m</span><span style="--c:var(--mint);--r:6deg">i</span><span style="--c:var(--grape);--t:#fff;--r:-6deg">n</span><span style="--c:var(--gum);--r:3deg">g</span>
+      </span>
+      <span class="w" aria-hidden="true">
+        <span style="--c:var(--mint);--r:4deg">s</span><span style="--c:var(--tomato);--r:-4deg">o</span><span style="--c:var(--gum);--r:5deg">o</span><span style="--c:var(--blue);--t:#fff;--r:-5deg">n</span>
+      </span>
+    </h1>
+    <p>Our website is still in the oven. Come back soon for something good.</p>
+    <span class="tag">Almost there!</span>
+  </div>
+</main>
+</body>
+</html>
