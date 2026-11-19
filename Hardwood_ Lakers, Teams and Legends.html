@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hardwood: Lakers, Teams and Legends</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#f7f3fb;--surface:#ffffff;--ink:#1d1230;--mute:#5d5073;--line:#d9cfe8;--purple:#552583;--gold:#b87d00;--goldbg:#fdb927;--on-gold:#1d1230;--hero:#552583;--hero-ink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#150c22;--surface:#1f1430;--ink:#f3ecfb;--mute:#b3a4c9;--line:#38274f;--purple:#b48be0;--gold:#fdb927;--hero:#2a0f47}}
+:root[data-theme="dark"]{--bg:#150c22;--surface:#1f1430;--ink:#f3ecfb;--mute:#b3a4c9;--line:#38274f;--purple:#b48be0;--gold:#fdb927;--hero:#2a0f47}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 17px/1.55 Barlow,system-ui,sans-serif}
+h1,h2,h3{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;letter-spacing:.01em;line-height:1.05;margin:0}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:2px solid var(--line)}
+nav .wrap{display:flex;gap:22px;overflow-x:auto;padding-top:12px;padding-bottom:12px}
+nav a{color:var(--ink);text-decoration:none;font-weight:600;white-space:nowrap}
+nav a:hover,nav a:focus-visible{color:var(--purple);outline:none;text-decoration:underline;text-underline-offset:5px}
+.hero{background:var(--hero);color:var(--hero-ink);padding:56px 0 44px;border-bottom:8px solid var(--goldbg)}
+.hero h1{font-size:clamp(3.4rem,13vw,8.5rem);color:var(--goldbg);margin-bottom:14px}
+.hero p{max-width:34em;font-size:1.15rem;margin:0;color:#efe6fa}
+section{padding:48px 0 12px}
+h2{font-size:clamp(2rem,6vw,3rem);color:var(--purple);margin-bottom:6px}
+.lede{color:var(--mute);margin:0 0 22px;max-width:40em}
+.titles{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 28px;padding:0;list-style:none}
+.titles li{font-family:Anton,Impact,sans-serif;font-size:.95rem;padding:4px 9px;background:var(--goldbg);color:var(--on-gold);border-radius:3px}
+.titles li.mpls{background:transparent;border:2px solid var(--goldbg);color:var(--ink)}
+.key{font-size:.9rem;color:var(--mute);margin:-14px 0 24px}
+.row{display:grid;grid-template-columns:minmax(0,200px) 1fr;gap:6px 24px;padding:16px 0 16px 16px;border-top:1px solid var(--line);border-left:6px solid var(--c,var(--purple))}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row h3{font-size:1.45rem}
+.row .sub{display:block;font-family:Barlow,sans-serif;font-size:.9rem;color:var(--mute);font-weight:500;margin-top:3px}
+.row p{margin:0;max-width:60ch}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 20px}
+input,select{font:inherit;color:var(--ink);background:var(--surface);border:2px solid var(--line);border-radius:6px;padding:9px 12px;min-width:0}
+input{flex:1 1 220px}
+input:focus-visible,select:focus-visible{outline:3px solid var(--goldbg);outline-offset:1px;border-color:var(--purple)}
+.empty{padding:24px 0;color:var(--mute)}
+.era{padding:18px 0;border-top:1px solid var(--line);max-width:68ch}
+.era h3{font-size:1.4rem;margin-bottom:4px}
+.era .yr{color:var(--gold);font-weight:600}
+.era p{margin:4px 0 0}
+footer{margin-top:56px;padding:26px 0 40px;border-top:2px solid var(--line);color:var(--mute);font-size:.92rem}
+.name{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;text-align:left;text-decoration:underline;text-decoration-color:var(--goldbg);text-decoration-thickness:3px;text-underline-offset:4px}
+.name:hover,.name:focus-visible{color:var(--purple);outline:none}
+[hidden]{display:none!important}
+.yr{font:inherit;color:inherit;background:none;border:0;padding:4px 9px;margin:-4px -9px;cursor:pointer}
+.yr:hover{text-decoration:underline;text-underline-offset:3px}
+.yr:focus-visible{outline:3px solid var(--purple);outline-offset:1px}
+.sw{display:inline-block;width:34px;height:16px;border-radius:3px;border:2px solid var(--line);vertical-align:-3px;margin-right:10px}
+.name:focus-visible{outline:3px solid var(--goldbg);outline-offset:3px}
+dialog{background:var(--surface);color:var(--ink);border:3px solid var(--purple);border-radius:8px;padding:24px;width:min(420px,calc(100% - 32px))}
+dialog::backdrop{background:rgba(10,4,20,.65)}
+dialog h3{font-size:2rem;color:var(--purple);margin-bottom:14px}
+dialog dl{margin:0 0 18px;display:grid;grid-template-columns:auto 1fr;gap:8px 16px}
+dialog dt{color:var(--mute);font-weight:600}
+dialog dd{margin:0}
+dialog button.close{font:600 1rem Barlow,sans-serif;background:var(--goldbg);color:var(--on-gold);border:0;border-radius:6px;padding:10px 18px;cursor:pointer}
+dialog button.close:focus-visible{outline:3px solid var(--purple);outline-offset:2px}
+.pic{width:100%;aspect-ratio:4/3;background:var(--bg);border:2px dashed var(--line);border-radius:6px;display:grid;place-items:center;color:var(--mute);margin-bottom:14px;overflow:hidden}
+.pic img{width:100%;height:100%;object-fit:cover}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+dialog button.alt{font:600 1rem Barlow,sans-serif;background:transparent;color:var(--ink);border:2px solid var(--line);border-radius:6px;padding:8px 14px;cursor:pointer}
+dialog button.alt:hover,dialog button.alt:focus-visible{border-color:var(--purple);outline:none}
+@media (max-width:640px){.row{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<h1>Hardwood</h1>
+<p>The Los Angeles Lakers, the franchises they’ve battled for decades, and the players who defined the game. Search, filter and browse.</p>
+</div></header>
+<nav aria-label="Sections"><div class="wrap">
+<a href="#lakers">Lakers</a><a href="#teams">Teams</a><a href="#players">Players</a><a href="#eras">Famous teams</a>
+</div></nav>
+
+<main class="wrap">
+<section id="lakers">
+<h2>Los Angeles Lakers</h2>
+<p class="lede">Founded in Minneapolis in 1947 and in Los Angeles since 1960. Seventeen championships: five in Minneapolis, twelve in Los Angeles.</p>
+<ul class="titles" id="titles" aria-label="Championship years"></ul>
+<p class="key">Outlined years were won in Minneapolis; gold years in Los Angeles.</p>
+<div id="lakerRows"></div>
+</section>
+
+<section id="teams">
+<h2>Teams</h2>
+<p class="lede">Franchises with the biggest legacies. Championship counts are franchise totals.</p>
+<div class="tools">
+<input id="teamQ" type="search" placeholder="Search teams" aria-label="Search teams">
+<select id="teamSort" aria-label="Sort teams"><option value="titles">Most titles</option><option value="name">A to Z</option></select>
+</div>
+<div id="teamRows"></div>
+</section>
+
+<section id="players">
+<h2>Players</h2>
+<p class="lede">All-time greats, from the first big man to today’s global stars.</p>
+<div class="tools">
+<input id="playerQ" type="search" placeholder="Search players" aria-label="Search players">
+<select id="playerTeam" aria-label="Filter by team"><option value="">All teams</option></select>
+</div>
+<div id="playerRows"></div>
+</section>
+
+<section id="eras">
+<h2>Famous teams and moments</h2>
+<p class="lede">The squads and seasons people still argue about.</p>
+<div id="eraRows"></div>
+</section>
+</main>
+
+<footer><div class="wrap">Team names are used here for reference only. This page covers history through the mid-2020s; check the NBA’s site for current rosters, standings and scores.</div></footer>
+
+<dialog id="bio" aria-labelledby="bioName"><h3 id="bioName"></h3><div class="pic" id="bioPic"></div><dl id="bioInfo"></dl><div class="btns"><button type="button" class="alt" id="bioAdd">Add photo</button><button type="button" class="alt" id="bioDel" hidden>Remove photo</button><button type="button" class="close" id="bioClose">Close</button></div><input type="file" id="bioFile" accept="image/*" hidden></dialog>
+<script>
+var LAKER_TITLES=[[1949,1],[1950,1],[1952,1],[1953,1],[1954,1],[1972,0],[1980,0],[1982,0],[1985,0],[1987,0],[1988,0],[2000,0],[2001,0],[2002,0],[2009,0],[2010,0],[2020,0]];
+var LAKERS=[
+["George Mikan","Center, 1947–56","The league’s first dominant big man and the star of the Minneapolis dynasty that won five titles."],
+["Elgin Baylor","Forward, 1958–71","An early high-flyer who averaged 27.4 points in his career and made eleven All-Star teams."],
+["Jerry West","Guard, 1960–74","Known as Mr. Clutch. 1969 Finals MVP on the losing team, and the only one ever given that award in defeat."],
+["Wilt Chamberlain","Center, 1968–73","Scored 100 in a game with Philadelphia, then anchored the 1972 Lakers, who won a record 33 straight."],
+["Kareem Abdul-Jabbar","Center, 1975–89","Six MVPs, six titles and the skyhook. Held the career scoring record for almost four decades."],
+["Magic Johnson","Guard, 1979–91, 1996","A 6-foot-9 point guard who ran Showtime. Five titles and three MVPs."],
+["James Worthy","Forward, 1982–94","Finals MVP in 1988 and a fast-break finisher on three title teams."],
+["Shaquille O’Neal","Center, 1996–2004","Won three straight Finals MVPs from 2000 to 2002 alongside Kobe Bryant."],
+["Kobe Bryant","Guard, 1996–2016","Five titles in twenty seasons, all with the Lakers. Scored 81 against Toronto in 2006."],
+["LeBron James","Forward, 2018–","Led the Lakers to the 2020 title. Became the NBA’s all-time leading scorer in 2023."]
+];
+var TEAMS=[
+["Boston Celtics",18,"#007a33","East","Eleven titles in thirteen years (1957–69) under Bill Russell. Longtime rival of the Lakers."],
+["Los Angeles Lakers",17,"#552583","West","Five titles in Minneapolis, twelve in Los Angeles, including the Showtime and Kobe eras."],
+["Golden State Warriors",7,"#1d428a","West","Three-point revolution led by Stephen Curry. Four titles between 2015 and 2022."],
+["Chicago Bulls",6,"#ce1141","East","Jordan’s two three-peats, 1991–93 and 1996–98."],
+["San Antonio Spurs",5,"#6e7378","West","Built on Tim Duncan and a team-first system. Five titles from 1999 to 2014."],
+["Miami Heat",3,"#98002e","East","Titles in 2006, 2012 and 2013, led by Dwyane Wade and LeBron James."],
+["Detroit Pistons",3,"#c8102e","East","The Bad Boys won back-to-back in 1989 and 1990; the 2004 team won with no superstar."],
+["Philadelphia 76ers",3,"#006bb6","East","Titles in 1955 (as the Syracuse Nationals), 1967 and 1983."],
+["New York Knicks",2,"#f58426","East","Champions in 1970 and 1973 with Willis Reed and Walt Frazier."],
+["Houston Rockets",2,"#ce1141","West","Back-to-back champions in 1994 and 1995 behind Hakeem Olajuwon."],
+["Milwaukee Bucks",2,"#00471b","East","Kareem won the 1971 title; Giannis Antetokounmpo won in 2021."],
+["Oklahoma City Thunder",2,"#007ac1","West","Won in 2025; the franchise’s other title came as the Seattle SuperSonics in 1979."],
+["Dallas Mavericks",1,"#00538c","West","Dirk Nowitzki’s 2011 title over Miami."],
+["Cleveland Cavaliers",1,"#860038","East","Came back from 3–1 down to win in 2016."],
+["Toronto Raptors",1,"#ce1141","East","The 2019 champions, and the only title won outside the United States."],
+["Denver Nuggets",1,"#0e2240","West","Nikola Jokić led them to the 2023 title."]
+];
+var PLAYERS=[
+["Michael Jordan","Chicago Bulls","Six titles, six Finals MVPs, five MVPs and ten scoring titles."],
+["Bill Russell","Boston Celtics","Eleven championships in thirteen seasons and five MVPs."],
+["Kareem Abdul-Jabbar","Los Angeles Lakers","Six MVPs and the skyhook, with six titles for Milwaukee and Los Angeles."],
+["Magic Johnson","Los Angeles Lakers","Five titles and the template for the tall playmaker."],
+["Larry Bird","Boston Celtics","Three straight MVPs from 1984 to 1986 and three titles."],
+["Wilt Chamberlain","Philadelphia / Lakers","Scored 100 in one game and averaged over 50 points in 1961–62."],
+["Kobe Bryant","Los Angeles Lakers","Five-time champion known for relentless work habits and the Mamba mentality."],
+["LeBron James","Los Angeles Lakers","Four titles with three teams and the NBA’s all-time leading scorer."],
+["Shaquille O’Neal","Los Angeles Lakers","A dominant center with four titles across the Lakers and Heat."],
+["Tim Duncan","San Antonio Spurs","Five titles, two MVPs and nineteen seasons with one team."],
+["Stephen Curry","Golden State Warriors","Four titles, two MVPs and the all-time leader in three-pointers."],
+["Hakeem Olajuwon","Houston Rockets","Back-to-back titles in 1994 and 1995 and the Dream Shake."],
+["Dirk Nowitzki","Dallas Mavericks","The 2011 champion who changed what a 7-footer could do."],
+["Kevin Durant","Houston Rockets","Two titles with Golden State, four scoring titles, and a smooth scorer from anywhere."],
+["Giannis Antetokounmpo","Milwaukee Bucks","Two MVPs, a Defensive Player of the Year and the 2021 title."],
+["Nikola Jokić","Denver Nuggets","Three MVPs and the 2023 title, from a center who passes like a guard."],
+["Julius Erving","Philadelphia 76ers","Dr. J brought the dunk to the mainstream and won the 1983 title."],
+["Allen Iverson","Philadelphia 76ers","The 2001 MVP who carried Philadelphia to the Finals."],
+["Dwyane Wade","Miami Heat","Three titles and the 2006 Finals MVP."],
+["Kawhi Leonard","Los Angeles Clippers","Finals MVP with the Spurs in 2014 and the Raptors in 2019."]
+];
+var ERAS=[
+["1971–72 Lakers","Won 33 straight games, a record that still stands, and finished with the franchise’s first Los Angeles title."],
+["1980s Showtime","Magic Johnson’s Lakers won five titles in nine years and met Larry Bird’s Celtics in three Finals."],
+["1989–90 Bad Boys Pistons","Detroit’s physical defense beat the Lakers in 1989 and Portland in 1990."],
+["1995–96 Bulls","Finished 72–10, then the best regular season ever, and won the title."],
+["1992 Dream Team","The first U.S. Olympic team with NBA players. Jordan, Magic, Bird and others won gold in Barcelona."],
+["2015–16 Warriors","Went 73–9 to break the Bulls’ record, but lost the Finals to Cleveland."],
+["2016 Cavaliers","Became the first team to win the Finals after trailing 3–1."]
+];
+var $=function(id){return document.getElementById(id)};
+var BIO={
+"George Mikan":["1924-06-18","1999-06-01","1946–56","Chicago American Gears, Minneapolis Lakers"],
+"Elgin Baylor":["1934-09-16","2021-03-22","1958–71","Minneapolis and Los Angeles Lakers"],
+"Jerry West":["1938-05-28","2024-06-12","1960–74","Los Angeles Lakers"],
+"Wilt Chamberlain":["1936-08-21","1999-10-12","1959–73","Warriors, Philadelphia 76ers, Los Angeles Lakers"],
+"Kareem Abdul-Jabbar":["1947-04-16","","1969–89","Milwaukee Bucks, Los Angeles Lakers"],
+"Magic Johnson":["1959-08-14","","1979–91, 1996","Los Angeles Lakers"],
+"James Worthy":["1961-02-27","","1982–94","Los Angeles Lakers"],
+"Shaquille O’Neal":["1972-03-06","","1992–2011","Orlando Magic, Lakers, Miami Heat, Suns, Cavaliers, Celtics"],
+"Kobe Bryant":["1978-08-23","2020-01-26","1996–2016","Los Angeles Lakers"],
+"LeBron James":["1984-12-30","","2003–present","Cleveland Cavaliers, Miami Heat, Los Angeles Lakers"],
+"Michael Jordan":["1963-02-17","","1984–2003","Chicago Bulls, Washington Wizards"],
+"Bill Russell":["1934-02-12","2022-07-31","1956–69","Boston Celtics"],
+"Larry Bird":["1956-12-07","","1979–92","Boston Celtics"],
+"Tim Duncan":["1976-04-25","","1997–2016","San Antonio Spurs"],
+"Stephen Curry":["1988-03-14","","2009–present","Golden State Warriors"],
+"Hakeem Olajuwon":["1963-01-21","","1984–2002","Houston Rockets, Toronto Raptors"],
+"Dirk Nowitzki":["1978-06-19","","1998–2019","Dallas Mavericks"],
+"Kevin Durant":["1988-09-29","","2007–present","Seattle/Oklahoma City, Warriors, Nets, Suns, Rockets"],
+"Giannis Antetokounmpo":["1994-12-06","","2013–present","Milwaukee Bucks"],
+"Nikola Jokić":["1995-02-19","","2015–present","Denver Nuggets"],
+"Julius Erving":["1950-02-22","","1971–87","Virginia Squires, New York Nets, Philadelphia 76ers"],
+"Allen Iverson":["1975-06-07","","1996–2010","76ers, Nuggets, Pistons, Grizzlies"],
+"Dwyane Wade":["1982-01-17","","2003–19","Miami Heat, Chicago Bulls, Cleveland Cavaliers"],
+"Kawhi Leonard":["1991-06-29","","2011–present","San Antonio Spurs, Toronto Raptors, LA Clippers"]
+};
+var HT={"George Mikan":"6 ft 10 in, center","Elgin Baylor":"6 ft 5 in, forward","Jerry West":"6 ft 2 in, guard","Wilt Chamberlain":"7 ft 1 in, center","Kareem Abdul-Jabbar":"7 ft 2 in, center","Magic Johnson":"6 ft 9 in, guard","James Worthy":"6 ft 9 in, forward","Shaquille O\u2019Neal":"7 ft 1 in, center","Kobe Bryant":"6 ft 6 in, guard","LeBron James":"6 ft 9 in, forward","Michael Jordan":"6 ft 6 in, guard","Bill Russell":"6 ft 9 in, center","Larry Bird":"6 ft 9 in, forward","Tim Duncan":"6 ft 11 in, forward/center","Stephen Curry":"6 ft 2 in, guard","Hakeem Olajuwon":"7 ft 0 in, center","Dirk Nowitzki":"7 ft 0 in, forward","Kevin Durant":"6 ft 11 in, forward","Giannis Antetokounmpo":"6 ft 11 in, forward","Nikola Joki\u0107":"6 ft 11 in, center","Julius Erving":"6 ft 6 in, forward","Allen Iverson":"6 ft 0 in, guard","Dwyane Wade":"6 ft 4 in, guard","Kawhi Leonard":"6 ft 7 in, forward"};
+var TB={"Boston Celtics":["1946","Boston","18: 1957, 1959\u201366, 1968, 1969, 1974, 1976, 1981, 1984, 1986, 2008, 2024","Bill Russell, Larry Bird"],"Los Angeles Lakers":["1947 (Minneapolis)","Los Angeles since 1960","17: 1949, 1950, 1952\u201354, 1972, 1980, 1982, 1985, 1987, 1988, 2000\u201302, 2009, 2010, 2020","Magic Johnson, Kobe Bryant, LeBron James"],"Golden State Warriors":["1946 (Philadelphia)","San Francisco","7: 1947, 1956, 1975, 2015, 2017, 2018, 2022","Wilt Chamberlain, Stephen Curry"],"Chicago Bulls":["1966","Chicago","6: 1991\u201393, 1996\u201398","Michael Jordan"],"San Antonio Spurs":["1967 (Dallas)","San Antonio since 1973","5: 1999, 2003, 2005, 2007, 2014","Tim Duncan, Kawhi Leonard"],"Miami Heat":["1988","Miami","3: 2006, 2012, 2013","Dwyane Wade, Shaquille O\u2019Neal"],"Detroit Pistons":["1941 (Fort Wayne)","Detroit since 1957","3: 1989, 1990, 2004","Isiah Thomas, Joe Dumars"],"Philadelphia 76ers":["1946 (Syracuse)","Philadelphia since 1963","3: 1955, 1967, 1983","Julius Erving, Allen Iverson"],"New York Knicks":["1946","New York","2: 1970, 1973","Willis Reed, Walt Frazier"],"Houston Rockets":["1967 (San Diego)","Houston since 1971","2: 1994, 1995","Hakeem Olajuwon"],"Milwaukee Bucks":["1968","Milwaukee","2: 1971, 2021","Kareem Abdul-Jabbar, Giannis Antetokounmpo"],"Oklahoma City Thunder":["1967 (Seattle)","Oklahoma City since 2008","2: 1979 (Seattle), 2025","Kevin Durant"],"Dallas Mavericks":["1980","Dallas","1: 2011","Dirk Nowitzki"],"Cleveland Cavaliers":["1970","Cleveland","1: 2016","LeBron James"],"Toronto Raptors":["1995","Toronto","1: 2019","Kawhi Leonard"],"Denver Nuggets":["1967 (Denver Rockets)","Denver","1: 2023","Nikola Joki\u0107"]};
+var KIDS={"LeBron James":[3,[2004,2007,2014],""],"Magic Johnson":[3,[1981,1992,1995],""],"Shaquille O\u2019Neal":[6,[1996,2000,2002,2003,2006,2009],""],"Kobe Bryant":[4,[2003,2016,2019],"Gianna died in 2020; ages shown are for the other three"],"Michael Jordan":[5,[1988,1990,1992,2014,2014],""],"Stephen Curry":[4,[2012,2015,2018,2023],""],"Dwyane Wade":[4,[2002,2007,2013,2018],""],"Nikola Joki\u0107":[1,[2022],""],"Bill Russell":[3,[],"Ages not listed"],"Wilt Chamberlain":[0,[],""],"Kevin Durant":[0,[],""]};
+function kidsRow(n){var k=KIDS[n],txt;if(k===undefined)txt='Not listed yet';else if(k[0]===0)txt='None publicly known';else{var y=new Date().getFullYear(),a=k[1].map(function(v){return y-v}),lo=Math.min.apply(null,a),hi=Math.max.apply(null,a);txt=k[0]+(k[0]===1?' child':' children');if(a.length)txt+='; ages about '+lo+(hi>lo?' to '+hi:'');if(k[2])txt+='. '+k[2]}return '<dt>Children</dt><dd>'+esc(txt)+'</dd>'}
+function showTeam(n){var t=TB[n],c='#552583';TEAMS.forEach(function(x){if(x[0]===n)c=x[2]});var html='<dt>Founded</dt><dd>'+esc(t[0])+'</dd><dt>Home</dt><dd>'+esc(t[1])+'</dd><dt>Titles</dt><dd>'+esc(t[2])+'</dd><dt>Stars</dt><dd>'+esc(t[3])+'</dd><dt>Color</dt><dd><span class="sw" style="background:'+c+'"></span>Main team color</dd>';$('bioName').textContent=n;$('bioInfo').innerHTML=html;var dlg=$('bio');if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','')}
+function nameHtml(t){return (BIO[t]||TB[t])?'<button type="button" class="name" data-n="'+esc(t)+'">'+esc(t)+'</button>':esc(t)}
+function fmt(d){return d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric',timeZone:'UTC'})}
+function ageAt(b,e){var a=e.getUTCFullYear()-b.getUTCFullYear();if(e.getUTCMonth()<b.getUTCMonth()||(e.getUTCMonth()===b.getUTCMonth()&&e.getUTCDate()<b.getUTCDate()))a--;return a}
+function showBio(n){if(TB[n]){showTeam(n);return}var b=BIO[n];if(!b)return;var born=new Date(b[0]+'T00:00:00Z'),died=b[1]?new Date(b[1]+'T00:00:00Z'):null;
+var html='<dt>Born</dt><dd>'+fmt(born)+'</dd>';
+html+=died?'<dt>Died</dt><dd>'+fmt(died)+' (age '+ageAt(born,died)+')</dd>':'<dt>Age</dt><dd>'+ageAt(born,new Date())+'</dd>';
+if(HT[n])html+='<dt>Height</dt><dd>'+esc(HT[n])+'</dd>';
+html+='<dt>Career</dt><dd>'+esc(b[2])+'</dd><dt>Teams</dt><dd>'+esc(b[3])+'</dd>';html+=kidsRow(n);
+$('bioName').textContent=n;$('bioInfo').innerHTML=html;var dlg=$('bio');if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','')}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function row(t,sub,txt,col){return '<div class="row" style="--c:'+(col||"var(--purple)")+'"><h3>'+nameHtml(t)+'<span class="sub">'+esc(sub)+'</span></h3><p>'+esc(txt)+'</p></div>'}
+$("titles").innerHTML=LAKER_TITLES.map(function(t){return '<li'+(t[1]?' class="mpls"':'')+'><button type="button" class="yr" data-y="'+t[0]+'">'+t[0]+'</button></li>'}).join("");
+$("lakerRows").innerHTML=LAKERS.map(function(p){return row(p[0],p[1],p[2],"#fdb927")}).join("");
+$("eraRows").innerHTML=ERAS.map(function(e){return '<div class="era"><h3>'+esc(e[0])+'</h3><p>'+esc(e[1])+'</p></div>'}).join("");
+function renderTeams(){
+var q=$("teamQ").value.trim().toLowerCase(),s=$("teamSort").value;
+var list=TEAMS.filter(function(t){return t[0].toLowerCase().indexOf(q)>-1});
+list.sort(function(a,b){return s==="name"?a[0].localeCompare(b[0]):b[1]-a[1]||a[0].localeCompare(b[0])});
+$("teamRows").innerHTML=list.length?list.map(function(t){return row(t[0],t[1]+(t[1]===1?" title":" titles")+", "+t[3],t[4],t[2])}).join(""):'<p class="empty">No teams match that search. Try a city or nickname.</p>';
+}
+var teamNames=[];PLAYERS.forEach(function(p){if(teamNames.indexOf(p[1])<0)teamNames.push(p[1])});
+teamNames.sort();
+$("playerTeam").innerHTML+=teamNames.map(function(n){return '<option>'+esc(n)+'</option>'}).join("");
+function renderPlayers(){
+var q=$("playerQ").value.trim().toLowerCase(),tm=$("playerTeam").value;
+var list=PLAYERS.filter(function(p){return (!tm||p[1]===tm)&&(p[0].toLowerCase().indexOf(q)>-1||p[2].toLowerCase().indexOf(q)>-1)});
+$("playerRows").innerHTML=list.length?list.map(function(p){return row(p[0],p[1],p[2])}).join(""):'<p class="empty">No players match. Clear the search or pick All teams.</p>';
+}
+["teamQ","teamSort"].forEach(function(i){$(i).addEventListener("input",renderTeams)});
+["playerQ","playerTeam"].forEach(function(i){$(i).addEventListener("input",renderPlayers)});
+var curName='',mem={};
+function getPic(n){if(mem[n])return mem[n];try{return localStorage.getItem('pic:'+n)}catch(e){return null}}
+function showPic(){var d=getPic(curName);$('bioPic').innerHTML=d?'<img src="'+d+'" alt="Photo of '+esc(curName)+'">':'<span>No photo yet</span>';$('bioAdd').textContent=d?'Change photo':'Add photo';$('bioDel').hidden=!d}
+var _sb=showBio;showBio=function(n){_sb(n);curName=n;$('bioPic').hidden=false;$('bioAdd').hidden=false;showPic()};
+var LY={"1949":["Washington Capitols","4\u20132","","John Kundla"],"1950":["Syracuse Nationals","4\u20132","","John Kundla"],"1952":["New York Knicks","4\u20133","","John Kundla"],"1953":["New York Knicks","4\u20131","","John Kundla"],"1954":["Syracuse Nationals","4\u20133","","John Kundla"],"1972":["New York Knicks","4\u20131","Wilt Chamberlain","Bill Sharman"],"1980":["Philadelphia 76ers","4\u20132","Magic Johnson","Paul Westhead"],"1982":["Philadelphia 76ers","4\u20132","Magic Johnson","Pat Riley"],"1985":["Boston Celtics","4\u20132","Kareem Abdul-Jabbar","Pat Riley"],"1987":["Boston Celtics","4\u20132","Magic Johnson","Pat Riley"],"1988":["Detroit Pistons","4\u20133","James Worthy","Pat Riley"],"2000":["Indiana Pacers","4\u20132","Shaquille O\u2019Neal","Phil Jackson"],"2001":["Philadelphia 76ers","4\u20131","Shaquille O\u2019Neal","Phil Jackson"],"2002":["New Jersey Nets","4\u20130","Shaquille O\u2019Neal","Phil Jackson"],"2009":["Orlando Magic","4\u20131","Kobe Bryant","Phil Jackson"],"2010":["Boston Celtics","4\u20133","Kobe Bryant","Phil Jackson"],"2020":["Miami Heat","4\u20132","LeBron James","Frank Vogel"]};
+function showYear(y){var d=LY[y];if(!d)return;var html='<dt>Opponent</dt><dd>'+esc(d[0])+'</dd><dt>Series</dt><dd>Won '+d[1]+'</dd><dt>Finals MVP</dt><dd>'+esc(d[2]||'Not awarded until 1969')+'</dd><dt>Coach</dt><dd>'+esc(d[3])+'</dd><dt>Home</dt><dd>'+(+y<1960?'Minneapolis':'Los Angeles')+'</dd>';$('bioName').textContent=y+' champions';$('bioInfo').innerHTML=html;$('bioPic').hidden=true;$('bioAdd').hidden=true;$('bioDel').hidden=true;var dlg=$('bio');if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','')}
+$('bioAdd').addEventListener('click',function(){$('bioFile').click()});
+$('bioDel').addEventListener('click',function(){delete mem[curName];try{localStorage.removeItem('pic:'+curName)}catch(e){}showPic()});
+$('bioFile').addEventListener('change',function(){var f=this.files[0];this.value='';if(!f)return;var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var s=Math.min(1,480/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);c.getContext('2d').drawImage(im,0,0,c.width,c.height);var u=c.toDataURL('image/jpeg',.8);mem[curName]=u;try{localStorage.setItem('pic:'+curName,u)}catch(e){}showPic()};im.src=r.result};r.readAsDataURL(f)});
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.name');if(b)showBio(b.getAttribute('data-n'));var y=e.target.closest&&e.target.closest('.yr');if(y)showYear(y.getAttribute('data-y'))});
+$('bioClose').addEventListener('click',function(){$('bio').close()});
+$('bio').addEventListener('click',function(e){if(e.target===this)this.close()});
+renderTeams();renderPlayers();
+</script>
+</body>
+</html>
